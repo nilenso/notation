@@ -1,0 +1,7 @@
+AllCops:
+  Exclude:
+    - bin/update
+    - bin/setup
+    - app/models/application_record.rb
+    - app/helpers/application_helper.rb
+    - config/application.rb
