@@ -5,7 +5,7 @@ RUN apt-get update && apt-get install -y yarn postgresql-client nodejs
 # throw errors if Gemfile has been modified since Gemfile.lock
 RUN bundle config --global frozen 1
 
-WORKDIR /myapp
+WORKDIR /notation
 
 COPY Gemfile Gemfile.lock ./
 
