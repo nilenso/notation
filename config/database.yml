@@ -5,9 +5,12 @@
 #   gem 'sqlite3'
 #
 default: &default
-  adapter: postresql
+  adapter: postgresql
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  timeout: 5000
+  host: <%= ENV['NOTATION_DATABASE_HOST'] %>
+  username: <%= ENV['NOTATION_DATABASE_USERNAME'] %>
+  password: <%= ENV['NOTATION_DATABASE_PASSWORD'] %>
+  database: <%= ENV['NOTATION_DATABASE_NAME'] %>
 
 development:
   <<: *default
