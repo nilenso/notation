@@ -1,0 +1,63 @@
+version: v1.0
+name: Test Notation
+agent:
+  machine:
+    type: e1-standard-2
+    os_image: ubuntu2004
+blocks:
+  - name: Setup
+    task:
+      env_vars: []
+      jobs:
+        - name: bundle
+          commands:
+            - checkout
+            - cache restore
+            - sem-version ruby 2.6.8
+            - cache store
+    dependencies: []
+  - name: Unit tests
+    dependencies:
+      - Setup
+    task:
+      env_vars:
+        - name: DATABASE_URL
+          value: 'postgresql://postgres:@0.0.0.0:5432/notation_test'
+        - name: RAILS_ENV
+          value: test
+      prologue:
+        commands:
+          - checkout
+          - cache restore
+          - sem-version ruby 2.6.8
+          - bundle install --deployment --path vendor/bundle
+          - sem-service start postgres
+          - 'bundle exec rake db:setup'
+      jobs:
+        - name: RSpec - model tests
+          commands:
+            - bundle exec rspec spec/models
+        - name: RSpec - controller tests
+          commands:
+            - bundle exec rspec spec/controllers
+  - name: Integration tests
+    dependencies:
+      - Unit tests
+    task:
+      env_vars:
+        - name: DATABASE_URL
+          value: 'postgresql://postgres:@0.0.0.0:5432/notation_test'
+        - name: RAILS_ENV
+          value: test
+      prologue:
+        commands:
+          - checkout
+          - cache restore
+          - sem-service start postgres 14
+          - sem-version ruby 2.6.8
+          - bundle install --deployment --path vendor/bundle
+          - 'bundle exec rake db:setup'
+      jobs:
+        - name: RSpec - feature specs
+          commands:
+            - bundle exec rspec spec/features
