@@ -16,9 +16,23 @@ blocks:
             - sem-version ruby 2.6.8
             - cache store
     dependencies: []
-  - name: Unit tests
+  - name: Code scanning
     dependencies:
       - Setup
+    task:
+      jobs:
+        - name: check style
+          commands:
+            - sem-version ruby 2.7.3
+            - sem-version node 14.16.1
+            - checkout
+            - cache restore
+            - bundle install
+            - cache store
+            - bundle exec standardrb
+  - name: Tests
+    dependencies:
+      - Code scanning
     task:
       env_vars:
         - name: DATABASE_URL
@@ -34,30 +48,13 @@ blocks:
           - sem-service start postgres
           - 'bundle exec rake db:setup'
       jobs:
-        - name: RSpec - model tests
+        - name: RSpec - tests
           commands:
-            - bundle exec rspec spec/models
-        - name: RSpec - controller tests
-          commands:
-            - bundle exec rspec spec/controllers
-  - name: Integration tests
-    dependencies:
-      - Unit tests
-    task:
-      env_vars:
-        - name: DATABASE_URL
-          value: 'postgresql://postgres:@0.0.0.0:5432/notation_test'
-        - name: RAILS_ENV
-          value: test
-      prologue:
-        commands:
-          - checkout
-          - cache restore
-          - sem-service start postgres 14
-          - sem-version ruby 2.6.8
-          - bundle install --deployment --path vendor/bundle
-          - 'bundle exec rake db:setup'
-      jobs:
-        - name: RSpec - feature specs
-          commands:
-            - bundle exec rspec spec/features
+            - bundle exec rspec
+promotions:
+  - name: Production deploy
+    pipeline_file: production-deploy.yml
+  - name: Staging deploy
+    pipeline_file: staging-deploy.yml
+    auto_promote:
+      when: "result = 'passed'"
