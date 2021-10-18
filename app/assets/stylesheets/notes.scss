@@ -1,0 +1,56 @@
+// Place all the styles related to the Notes controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+/* Set height to 100% for body and html to enable the background image to cover the whole page: */
+body, html {
+  height: 100%
+}
+
+.banner {
+  /* Background image */
+  background-image: image-url('welcome-page.png');
+  /* Full-screen */
+  height: 50%;
+  /* Center the background image */
+  background-position: center;
+  background-repeat: no-repeat;
+  /* Scale and zoom in the image */
+  background-size: cover;
+  /* Add position: relative to enable absolutely positioned elements inside the image (place text) */
+  position: relative;
+  /* Add a white text color to all elements inside the .bgimg container */
+  color: rebeccapurple;
+}
+
+/* Position text in the top-left corner */
+.topleft {
+  top: 16px;
+  position: absolute;
+  left: 16px;
+}
+
+/* Position text in the middle */
+.middle {
+  text-align: center;
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  /* Add a white text color to all elements inside the .bgimg container */
+  color: rebeccapurple;
+  /* Add a font */
+  font-family: "Courier New", Courier, monospace;
+  font-size: 18px;
+}
+
+.button {
+  background-color: rebeccapurple;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 25px;
+}
