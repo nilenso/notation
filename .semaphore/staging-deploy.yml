@@ -1,0 +1,23 @@
+version: v1.0
+name: Heroku deployment
+agent:
+  machine:
+    type: e1-standard-2
+    os_image: ubuntu1804
+blocks:
+  - name: Deploy
+    task:
+      secrets:
+        - name: notation-heroku
+      jobs:
+        - name: Push code
+          commands:
+            - checkout --use-cache
+            - ssh-keyscan -H heroku.com >> ~/.ssh/known_hosts
+            - chmod 600 ~/.ssh/id_rsa_semaphore_heroku
+            - ssh-add ~/.ssh/id_rsa_semaphore_heroku
+            - 'git config --global url.ssh://git@heroku.com/.insteadOf https://git.heroku.com/'
+            - git remote add staging $HEROKU_REMOTE_STAGING
+            - 'git push staging -f $SEMAPHORE_GIT_BRANCH:master'
+            - 'heroku run --app $HEROKU_APP_NAME_STAGING rake db:migrate'
+            - 'heroku ps:restart'

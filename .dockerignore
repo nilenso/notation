@@ -1,0 +1,2 @@
+# Ignore env files which contains secret credentials
+.env
