@@ -67,9 +67,10 @@ $ rspec
 $ standardrb --fix
 ```
 2. Open a pull request in the [nilenso/notation](https://github.com/nilenso/notation) repo. A brief description of the proposed addition along with references to any discussion issues should be included.
-3. The automated CI running against each pull request runs various code quality tests. 
-4. Pull request is merged to master branch once it's approved.
-5. Once your pull request is merged, changes can be publicly visible on [notation](https://notation-production.herokuapp.com/).
+3. The automated CI running against each pull request runs various code quality tests.  
+4. Once the CI pipeline succeeds, you can verify the changes are working as expected by visiting our [app](https://notation-staging.herokuapp.com/) in the staging environment.
+5. Pull request is merged to master branch once it's approved.
+6. Once your pull request is merged, changes can be publicly visible on our [app](https://notation-production.herokuapp.com/) in the production environment.
 
 ## License
 
