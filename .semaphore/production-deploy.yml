@@ -18,6 +18,6 @@ blocks:
             - ssh-add ~/.ssh/id_rsa_semaphore_heroku
             - 'git config --global url.ssh://git@heroku.com/.insteadOf https://git.heroku.com/'
             - git remote add production $HEROKU_REMOTE_PRODUCTION
-            - 'git push production -f $SEMAPHORE_GIT_BRANCH:master'
+            - 'git push production -f master:master'
             - 'heroku run --app $HEROKU_APP_NAME_PRODUCTION rake db:migrate'
             - 'heroku ps:restart'
