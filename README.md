@@ -3,7 +3,7 @@ NOTATION is a markdown based note-taking web app. Note down your thoughts, to-do
 
 ## Setting up Development Environment
 
-### Requirements:
+### Requirements
 Notation requires the following to run:
 - Ruby (v2.6.8)
 - Ruby on Rails (v5.2.6)
@@ -16,22 +16,22 @@ Notation requires the following to run:
 $ git clone https://github.com/nilenso/notation.git
 ```
 
-### Running the Application:
+### Running the Application
 To run the application, make sure no processes are running in the following ports in localhost:
 - :3000
 - :5432
 
 Then build and run the following commands at the root of the repository
-##### Build:
+##### Build
   ```sh
 $ docker-compose build
 ```
-##### Run:
+##### Run
   ```sh
 $ docker-compose up
 ```
 
-##### Run in background:
+##### Run in background
   ```sh
 $ docker-compose up -d
 ```
@@ -41,20 +41,20 @@ Verify the application is running by visiting following route in the browser.
 http://localhost:3000
 ```
 
-### Stoping the Application
+### Stopping the Application
 If you started the application by running the command `docker-compose up` press `Ctrl+c` on windows or `Cmd+c` on mac to stop. If the application is running in background, stop it by running,
 
 ```sh
 $ docker-compose stop
 ```
 
-##### To bring the container down:
+##### To stop and remove the container
 ```sh
 $ docker-compose down
 ```
 ## Testing
 
-To run tests, do:
+To run tests, do
 
 ```sh
 $ rspec
