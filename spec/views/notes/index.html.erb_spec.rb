@@ -1,5 +1,8 @@
 require "rails_helper"
 
 RSpec.describe "notes/index.html.erb", type: :view do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it "renders a welcome message" do
+    render
+    expect(rendered).to have_selector("h1", text: "Welcome to Notation")
+  end
 end
