@@ -1,5 +1,5 @@
 version: v1.0
-name: Heroku deployment
+name: Staging Deployment
 agent:
   machine:
     type: e1-standard-2
@@ -21,3 +21,11 @@ blocks:
             - 'git push staging -f $SEMAPHORE_GIT_BRANCH:master'
             - 'heroku run --app $HEROKU_APP_NAME_STAGING rake db:migrate'
             - 'heroku ps:restart'
+queue:
+  name: Deployment queue
+  scope: project
+promotions:
+  - name: Production Deployment
+    pipeline_file: production_deployment.yml
+    auto_promote:
+      when: (branch = 'master' AND result = 'passed')
