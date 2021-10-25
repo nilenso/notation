@@ -3,48 +3,30 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 /* Set height to 100% for body and html to enable the background image to cover the whole page: */
 body, html {
-  height: 100%
+  height: 100%;
+}
+/* Split the screen in half */
+.split {
+  height: 100%;
+  width: 50%;
+  position: fixed;
+  z-index: 1;
+  top: 70px;
+  overflow-x: hidden;
+  padding-top: 20px;
 }
 
-.banner {
-  /* Background image */
-  background-image: image-url('welcome-page.png');
-  /* Full-screen */
-  height: 50%;
-  /* Center the background image */
-  background-position: center;
-  background-repeat: no-repeat;
-  /* Scale and zoom in the image */
-  background-size: cover;
-  /* Add position: relative to enable absolutely positioned elements inside the image (place text) */
-  position: relative;
-  /* Add a white text color to all elements inside the .bgimg container */
-  color: rebeccapurple;
+/* Control the left side */
+.left {
+left: 0;
 }
 
-/* Position text in the top-left corner */
-.topleft {
-  top: 16px;
-  position: absolute;
-  left: 16px;
+/* Control the right side */
+.right {
+  right: 0;
 }
 
-/* Position text in the middle */
-.middle {
-  text-align: center;
-  position: absolute;
-  top: 70%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  /* Add a white text color to all elements inside the .bgimg container */
-  color: rebeccapurple;
-  /* Add a font */
-  font-family: "Courier New", Courier, monospace;
-  font-size: 18px;
-}
-
-.button {
+.button{
   background-color: rebeccapurple;
   border: none;
   color: white;
@@ -53,4 +35,18 @@ body, html {
   text-decoration: none;
   display: inline-block;
   font-size: 25px;
+}
+
+/* If you want the content centered horizontally and vertically */
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+a{
+  color: white;
+  text-decoration: none;
 }

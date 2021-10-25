@@ -10,6 +10,39 @@
   </head>
 
   <body>
-    <%= yield %>
+    <div class="navbar">
+      <div class="logo">
+        <a href="/">
+          <%= image_tag("logo.png", alt:"Notation", height: '30', width: '130') %>
+        </a>
+      </div>
+      <div class="nav-right-section">
+        <% if user_signed_in? %>
+          <a href="/users/sign_out">Logout</a>
+          <a href="/users/edit"><%= current_user.email %></a>
+          <strong>
+
+          </strong>
+
+        <% else %>
+          <a href="/users/sign_up">Sign up</a>
+          <a href="/users/sign_in">Login</a>
+        <% end %>
+      </div>
+    </div>
+    <div class="container">
+      <% if notice %>
+        <p class="alert alert-success"><%= notice %></p>
+      <% end %>
+      <% if alert %>
+        <p class="alert alert-danger"><%= alert %></p>
+      <% end %>
+
+      <%= yield %>
+    </div>
   </body>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 </html>
