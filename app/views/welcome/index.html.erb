@@ -1,14 +1,10 @@
-<div class="split left">
-  <div class="centered">
-    <img src="<%= image_path('notepad.png')%>"  alt="notepad"/>
-  </div>
-</div>
-
-<div class="split right">
-  <div class="centered">
-    <div class="button">
-      <a href="/users/sign_in">Login</a>
-    </div>
-  </div>
+<div class="jumbotron text-center">
+    <h1 class="display-4">Notation</h1>
+    <p class="lead">Why wait? Note down your thoughts, to-dos .... at any time, any place with style</p>
+    <% if current_user %>
+      <a class="btn btn-primary btn-lg" href="/users" role="button">Try Now!</a>
+    <%else %>
+      <a class="btn btn-primary btn-lg" href="/users/sign_in" role="button">Try Now!</a>
+    <% end %>
 </div>
 
