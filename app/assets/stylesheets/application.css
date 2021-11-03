@@ -1,3 +1,18 @@
+#bootstrap-overrides{
+    margin: 0 0;
+    padding: 0;
+    font-family: Roboto, serif;
+    font-size: 16px;
+    line-height: 1.42857143;
+    color: rebeccapurple;
+}
+
+.container {
+    width: 800px;
+    padding-right: 15px;
+    padding-left: 15px;
+
+}
 /* Style the navigation bar */
 .navbar a{
     margin-bottom: 0;
@@ -5,8 +20,17 @@
     color: rebeccapurple;
     font-size: 18px;
 }
+.panel{
+    width: 500px;
+    margin-right: auto;
+    margin-left: auto;
+    border-radius: 10px;
+    box-shadow: 5px 10px 2px 1px;
+
+}
 .panel-info{
-    border-color: lavender;
+    border-color: rebeccapurple;
+    border-radius: 10px;
 }
 
 .panel-title {
@@ -14,17 +38,49 @@
 }
 
 .panel-info>.panel-heading {
-    background-color: lavender;
-    border-color: lavender;
+    background-color: rgb(237, 243, 255);
+    border-color: rgb(237, 243, 255);
+    border-radius: 10px;
+
 }
 
 .btn:hover{
-    background-color: purple;
-    border-color: purple;
+    color: #fff;
+    background-color: mediumpurple;
+    border-color: lavender;
 }
 
 .btn{
+    color: #fff;
     background-color: rebeccapurple;
     border-color: rebeccapurple;
+}
 
+.btn-lg{
+    font-size: 20px;
+}
+
+.banner{
+    padding: 50px;
+    text-align: left;
+    background-color: rgb(237, 243, 255);
+    height: 350px;
+}
+.banner h1{
+    font-size: 50px;
+    padding: 10px;
+}
+
+.banner-body{
+    border-radius: 10px;
+    box-shadow: 5px 10px 2px 1px;
+    background-color: white;
+    width: 750px;
+    height: 300px;
+    padding: 20px;
+    text-align: center;
+}
+
+.lead{
+    font-size: 25px;
 }

@@ -1,10 +1,13 @@
-<div class="jumbotron text-center">
-    <h1 class="display-4">Notation</h1>
-    <p class="lead">Why wait? Note down your thoughts, to-dos .... at any time, any place with style</p>
-    <% if current_user %>
-      <a class="btn btn-primary btn-lg" href="/users" role="button">Try Now!</a>
-    <%else %>
-      <a class="btn btn-primary btn-lg" href="/users/sign_in" role="button">Try Now!</a>
-    <% end %>
+<div class="banner" style="text-align: center">
+  <h1>A Note Taking App</h1>
+  <p class="lead">Note down your thoughts, to-dos... at any time, any place with style. </p>
+  <br/>
+  <% if current_user %>
+    <a class="btn btn-lg" href="/users" role="button"><i>Get Started ❯</i></a>
+  <%else %>
+    <a class="btn btn-lg" href="/users/sign_in" role="button"><i>Get Started ❯</i></a>
+  <% end %>
+  </div>
 </div>
+
 
