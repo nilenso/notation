@@ -26,6 +26,6 @@ queue:
   scope: project
 promotions:
   - name: Production Deployment
-    pipeline_file: production_deployment.yml
+    pipeline_file: production_deploy.yml
     auto_promote:
       when: (branch = 'master' AND result = 'passed')
