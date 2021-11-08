@@ -1,13 +1,6 @@
-#sidebar{
-  color: rebeccapurple;
-  font-size: 16px;
-  margin-top: 0;
-  padding: 0;
-  background-color: #edf3ff;
-}
-
 table {
-  margin-left: 20%;
+  margin-left: 10%;
+  margin-right: 10%;
   border-spacing: 0;
   width: 80%;
   border: 1px solid #ddd;
@@ -28,18 +21,18 @@ td{
 
 .new {
   font-size: 16px;
-  margin-left: 16px;
+  margin-left: 20%;
+  padding: 20px;
 }
 
 #search-box{
-  margin-left: 20%;
   padding: 16px;
 }
 
 .wrapper {
   width: 100%;
-  max-width: 40rem;
-  margin-left: 40%;
+  max-width: 50rem;
+  margin-left: 20%;
   padding: 20px;
 }
 
@@ -72,4 +65,13 @@ td{
 
 #searchQuerySubmit:hover {
   cursor: pointer;
+}
+
+.editor{
+  border: 1px solid rebeccapurple;
+  border-radius: 3px;
+  width: 800px;
+  height: 580px;
+  padding: 6px;
+  margin: 15px 20%;
 }

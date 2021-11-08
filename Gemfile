@@ -20,6 +20,8 @@ gem "uglifier", ">= 1.3.0"
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'mini_racer', platforms: :ruby
 
+gem "bootstrap-sass", ">= 3.4"
+gem "simplemde-rails"
 gem "standard", "1.1.0", require: false
 
 gem "dotenv-rails", groups: [:development, :test]
