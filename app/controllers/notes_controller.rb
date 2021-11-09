@@ -10,7 +10,11 @@ class NotesController < ApplicationController
 
   def create
     @user = current_user
-    @note = @user.notes.create(note_params)
+    params = note_params
+    if params[:title]
+      params[:title] = "Untitled note"
+    end
+    @note = @user.notes.create(params)
     @note.save
     redirect_to notes_path
   end
