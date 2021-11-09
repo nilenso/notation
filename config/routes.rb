@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  require "sidekiq/web"
+  mount Sidekiq::Web => "/sidekiq"
   devise_for :users do
     devise_for :notes
   end
