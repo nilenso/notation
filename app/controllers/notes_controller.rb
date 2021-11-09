@@ -31,6 +31,13 @@ class NotesController < ApplicationController
     end
   end
 
+  def destroy
+    @user = current_user
+    @note = @user.notes.find(params[:format])
+    @note.destroy
+    redirect_to notes_path
+  end
+
   private
 
   def note_params

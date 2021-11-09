@@ -24,6 +24,9 @@
             <td onclick="window.location='<%= edit_notes_path(note) %>';"><%= note.title %></td>
             <td><%= note.created_at %></td>
             <td><%= note.updated_at %></td>
+            <td>
+              <%= link_to '', destroy_notes_path(note), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn fa fa-trash"%>
+            </td>
           </tr>
         <% end %>
     </table>
