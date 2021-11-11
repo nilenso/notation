@@ -1,12 +1,10 @@
 require "rails_helper"
 
 RSpec.describe Note, type: :model do
-  @user = User.new
-  note = @user.notes.new(
-    title: "Anything",
-    body: "About anything",
-    user_id: "41b98f04-3ffd-11ec-9356-0242ac130003"
-  )
+  let(:user) { FactoryBot.create(:user) }
+  let(:note) { FactoryBot.create(:note, user: user) }
+  let(:note1) { FactoryBot.create(:note, user: user, title: "Ruby", body: "Ruby is awesome.") }
+  let(:note2) { FactoryBot.create(:note, user: user, title: "ruby on rails", body: "Note : It's a framework") }
 
   it "is not valid without a title" do
     expect(note).to be_valid
@@ -22,36 +20,24 @@ RSpec.describe Note, type: :model do
 
   describe ".search_by_title_or_note" do
     it "should return all notes having the given string as the substring of title" do
-      user = User.create(email: "person@example.com", password: "password")
-      _note1 = user.notes.create(title: "New note", body: "This is my new note.")
-      note2 = user.notes.create(title: "Ruby", body: "Ruby is awesome.")
-      note3 = user.notes.create(title: "ruby on rails", body: "Note: It's a framework")
-
       result = Note.search_by_title_or_body("Ruby")
-
-      expect(result).to contain_exactly(note2, note3)
+      expect(result).to contain_exactly(note1, note2)
     end
 
     it "should return all notes having the given string as the substring of body" do
-      user = User.create(email: "person@example.com", password: "password")
-      note1 = user.notes.create(title: "Hacks", body: "This is my new note.")
-      _note2 = user.notes.create(title: "Ruby", body: "Ruby is awesome.")
-      note3 = user.notes.create(title: "ruby on rails", body: "Note : It's a framework")
-
       result = Note.search_by_title_or_body("note")
-
-      expect(result).to contain_exactly(note1, note3)
+      expect(result).to contain_exactly(note, note2)
     end
 
-    it "should not return any notes if any of the notes don't have the given string as the substring of title or body" do
-      user = User.create(email: "person@example.com", password: "password")
-      note1 = user.notes.create(title: "New note", body: "This is my new note.")
-      _note2 = user.notes.create(title: "Ruby", body: "Ruby is awesome. Rails is a ruby framework")
-      note3 = user.notes.create(title: "ruby on rails", body: "Note : It's a framework")
-
+    it "should return all notes if any of the notes have the given string as the substring of title or body" do
       result = Note.search_by_title_or_body("note")
+      expect(result).to contain_exactly(note, note2)
+    end
 
-      expect(result).to contain_exactly(note1, note3)
+    it "should not return any note if it don't have the given string as the substring of title or body" do
+      result = Note.search_by_title_or_body("java")
+      puts result
+      expect(result).to be_blank
     end
   end
 end
