@@ -10,11 +10,7 @@ class NotesController < ApplicationController
 
   def create
     @user = current_user
-    params = note_params
-    if params[:title]
-      params[:title] = "Untitled note"
-    end
-    @note = @user.notes.create(params)
+    @note = @user.notes.create(note_params)
     @note.save
     redirect_to notes_path
   end
@@ -38,6 +34,9 @@ class NotesController < ApplicationController
   private
 
   def note_params
+    if params[:note][:title].blank?
+      params[:note][:title] = "Untitled note"
+    end
     params.require(:note).permit(:title, :body)
   end
 end

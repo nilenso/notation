@@ -39,8 +39,7 @@
 
 <script type="text/javascript">
     function displayEditor() {
-        let simplemde = new SimpleMDE({element: document.getElementById("note_body")});
-        simplemde.value(note)
+        new SimpleMDE({element: document.getElementById("note_body")});
     }
     displayEditor();
 </script>
