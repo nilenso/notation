@@ -1,8 +1,8 @@
 class NotesController < ApplicationController
   def index
     @user = current_user
-    @notes = if params[:search_key].present?
-      @user.notes.search_by_title_or_body(params[:search_key])
+    @notes = if search_key.present?
+      @user.notes.search_by_title_or_body(search_key)
     else
       @user.notes
     end
@@ -43,6 +43,10 @@ class NotesController < ApplicationController
   end
 
   private
+
+  def search_key
+    params[:search_key]
+  end
 
   def note_params
     if params[:note][:title].blank?
