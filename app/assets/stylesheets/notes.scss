@@ -19,10 +19,6 @@ td{
   color: black;
 }
 
-#search-box{
-  padding: 16px;
-}
-
 .wrapper {
   display: flex;
   margin-left: 10%;
@@ -31,7 +27,7 @@ td{
   padding-bottom: 20px;
 }
 
-#txtSearch {
+#searchInput {
   background: #f5f5f5;
   outline: none;
   border: none;
@@ -53,4 +49,8 @@ td{
   height: auto;
   color: black;
   display: inline-block;
+}
+
+.new{
+  padding-left: 800px;
 }

@@ -1,25 +1,9 @@
 <div class="dashboard">
   <% if @notes.length > 0 %>
     <div class="wrapper">
-      <%if params[:search_key].present?%>
-        <div class="all-notes">
-          <button onclick="window.location.href='notes/'" class="btn">
-            <strong>All Notes</strong>
-          </button>
-        </div>
-      <%else%>
-
-        <div class="new">
-          <button onclick="window.location.href='notes/new'" class="btn">
-            <strong>NEW</strong>
-            <span class="glyphicon glyphicon-plus"></span>
-          </button>
-        </div>
-      <%end%>
-
       <%= form_with url: notes_path, method: :get, local: true do |form| %>
-        <div class="input-group" style="padding-left: 800px;">
-          <%= form.text_field :search_key, class:"form-control", placeholder:"Search", id:"txtSearch"%>
+        <div class="input-group">
+          <%= form.text_field :search_key, class:"form-control", placeholder:"Search", id:"searchInput"%>
           <div class="input-group-btn">
             <button class="btn btn-primary" type="submit" id="searchQuerySubmit">
               <span class="glyphicon glyphicon-search"></span>
@@ -27,6 +11,21 @@
           </div>
         </div>
       <% end %>
+      <%if params[:search_key].present?%>
+        <div class="new">
+          <button onclick="window.location.href='notes/'" class="btn">
+            <strong>All Notes</strong>
+          </button>
+        </div>
+      <%else%>
+
+        <div class="new" style="padding-left: 800px;">
+          <button onclick="window.location.href='notes/new'" class="btn">
+            <strong>NEW</strong>
+            <span class="glyphicon glyphicon-plus"></span>
+          </button>
+        </div>
+      <%end%>
     </div>
 
     <table id="listing" style="margin-bottom: 10%">
@@ -51,15 +50,9 @@
     </table>
   <% elsif params[:search_key].present?%>
     <div class="wrapper">
-      <div class="all-notes">
-        <button onclick="window.location.href='notes/'" class="btn">
-          <strong>All Notes</strong>
-        </button>
-      </div>
-
       <%= form_with url: notes_path, method: :get, local: true do |form| %>
-        <div class="input-group" style="padding-left: 800px;">
-          <%= form.text_field :search_key, class:"form-control", placeholder:"Search", id:"txtSearch"%>
+        <div class="input-group">
+          <%= form.text_field :search_key, class:"form-control", placeholder:"Search", id:"searchInput"%>
           <div class="input-group-btn">
             <button class="btn btn-primary" type="submit" id="searchQuerySubmit">
               <span class="glyphicon glyphicon-search"></span>
@@ -67,6 +60,11 @@
           </div>
         </div>
       <% end %>
+      <div class="new">
+        <button onclick="window.location.href='notes/'" class="btn">
+          <strong>All Notes</strong>
+        </button>
+      </div>
     </div>
     <table id="listing" style="margin-bottom: 10%">
       <tr>
@@ -90,16 +88,9 @@
 
   <% else %>
     <div class="wrapper">
-      <div class="new">
-        <button onclick="window.location.href='notes/new'" class="btn">
-          <strong>NEW</strong>
-          <span class="glyphicon glyphicon-plus"></span>
-        </button>
-      </div>
-
       <%= form_with url: notes_path, method: :get, local: true do |form| %>
-        <div class="input-group" style="padding-left: 800px;">
-          <%= form.text_field :search_key, class:"form-control", placeholder:"Search", id:"txtSearch"%>
+        <div class="input-group">
+          <%= form.text_field :search_key, class:"form-control", placeholder:"Search", id:"searchInput"%>
           <div class="input-group-btn">
             <button class="btn btn-primary" type="submit" id="searchQuerySubmit">
               <span class="glyphicon glyphicon-search"></span>
@@ -107,6 +98,12 @@
           </div>
         </div>
       <% end %>
+      <div class="new">
+        <button onclick="window.location.href='notes/new'" class="btn">
+          <strong>NEW</strong>
+          <span class="glyphicon glyphicon-plus"></span>
+        </button>
+      </div>
     </div>
     <table id="listing" style="margin-bottom: 10%">
       <tr>
