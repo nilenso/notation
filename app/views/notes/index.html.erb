@@ -30,9 +30,9 @@
 
     <table id="listing" style="margin-bottom: 10%">
         <tr>
-          <th>Title</th>
-          <th>Created At</th>
-          <th>Modified At</th>
+          <th>Title <%= sortable "title"%></th>
+          <th>Created At <%=sortable "created_at"%></th>
+          <th>Modified At <%=sortable "updated_at"%></th>
           <th>Action</th>
         </tr>
         <% @notes.each do |note| %>
