@@ -15,7 +15,7 @@ RSpec.describe NotesController, type: :controller do
     context "when search_key is not present in the query string parameter" do
       it "should list all notes" do
         get :index
-        expect(assigns(@user)[:notes]).to contain_exactly(note1, note2, note3)
+        expect(assigns[:notes]).to contain_exactly(note1, note2, note3)
       end
     end
 
@@ -23,7 +23,7 @@ RSpec.describe NotesController, type: :controller do
       it "should list all notes" do
         params = {"search_key" => ""}
         get :index, params: params
-        expect(assigns(@user)[:notes]).to contain_exactly(note1, note2, note3)
+        expect(assigns[:notes]).to contain_exactly(note1, note2, note3)
       end
     end
 
@@ -31,7 +31,7 @@ RSpec.describe NotesController, type: :controller do
       it "should list all notes" do
         params = {"search_key" => ""}
         get :index, params: params
-        expect(assigns(@user)[:notes]).to contain_exactly(note1, note2, note3)
+        expect(assigns[:notes]).to contain_exactly(note1, note2, note3)
       end
     end
 
@@ -39,7 +39,7 @@ RSpec.describe NotesController, type: :controller do
       it "should list all notes which matches with the search_key" do
         params = {"search_key" => "note"}
         get :index, params: params
-        expect(assigns(@user)[:notes]).to contain_exactly(note1, note2)
+        expect(assigns[:notes]).to contain_exactly(note1, note2)
       end
     end
   end
