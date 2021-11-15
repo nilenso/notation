@@ -36,7 +36,6 @@ RSpec.describe Note, type: :model do
 
     it "should not return any note if it don't have the given string as the substring of title or body" do
       result = Note.search_by_title_or_body("java")
-      puts result
       expect(result).to be_blank
     end
   end
