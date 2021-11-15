@@ -21,6 +21,7 @@ td{
 
 .wrapper {
   display: flex;
+  justify-content: space-between;
   margin-left: 10%;
   margin-right: 10%;
   padding-top: 20px;
@@ -49,8 +50,4 @@ td{
   height: auto;
   color: black;
   display: inline-block;
-}
-
-.new{
-  padding-left: 800px;
 }
