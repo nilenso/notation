@@ -1,5 +1,5 @@
 <div class="editor">
-  <%= form_with(model: @note, local: false) do |form| %>
+  <%= form_with(model: @note) do |form| %>
 
     <% if @note.errors.any? %>
       <div id="error_explanation">
@@ -38,8 +38,7 @@
 
 <script type="text/javascript">
     function displayEditor() {
-        let simplemde = new SimpleMDE({element: document.getElementById("note_body")});
-        console.log(simplemde);
+        new SimpleMDE({element: document.getElementById("note_body")});
     }
     displayEditor();
 </script>
