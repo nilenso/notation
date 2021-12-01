@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     get "/notes" => "notes#index"
     post "/notes" => "notes#create"
     patch "/notes" => "notes#update"
+    delete "/notes" => "notes#destroy", :as => "destroy_notes"
     get "/notes/new" => "notes#new"
     get "/notes/:id/edit" => "notes#edit", :as => "edit_notes"
   end

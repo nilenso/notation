@@ -31,7 +31,8 @@
 
     <div class="form-group col-md-12" style="text-align: center;">
       <%= form.submit "Save", class: "btn"%> &nbsp;&nbsp;&nbsp;&nbsp;
-      <span class="btn" style="background-color: grey"><%= link_to 'Back', notes_path %></span>
+      <span class="btn", style="background-color: red; border-color: red;"><%= link_to 'Delete', destroy_notes_path(@note), method: :delete, data: { confirm: 'Are you sure?' } %></span>&nbsp;&nbsp;&nbsp;&nbsp;
+      <span class="btn" style="background-color: grey; border-color: grey"><%= link_to 'Back', notes_path %></span>
     </div>
 
   <% end %>
