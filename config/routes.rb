@@ -9,7 +9,9 @@ Rails.application.routes.draw do
     get "/users" => "devise/registrations#index"
     get "/notes" => "notes#index"
     post "/notes" => "notes#create"
+    patch "/notes" => "notes#update"
     get "/notes/new" => "notes#new"
+    get "/notes/:id/edit" => "notes#edit", :as => "edit_notes"
   end
 
   root "welcome#index"

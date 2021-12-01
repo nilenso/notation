@@ -70,8 +70,11 @@ td{
 .editor{
   border: 1px solid rebeccapurple;
   border-radius: 3px;
-  width: 800px;
-  height: 580px;
+  min-width: 800px;
+  min-height: 580px;
   padding: 6px;
   margin: 15px 20%;
+  height: auto;
+  color: black;
+  display: inline-block;
 }
