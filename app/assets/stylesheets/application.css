@@ -48,6 +48,7 @@ hr{
 
 .panel-title {
     color: rebeccapurple;
+    text-align: center;
 }
 
 .panel-info>.panel-heading {
