@@ -15,7 +15,13 @@
     </div>
   <% end %>
 
-    <div class="form-group col-md-12" style="margin-top: 10px">
+    <div class="form-group col-md-12" style="color: #95a5a6; font-size: 12px; text-align: right;margin-top: 10px">
+      <div>
+        <em>Last edited at <%= @note.updated_at %></em>
+      </div>
+    </div>
+
+    <div class="form-group col-md-12">
       <label for="title">Title</label>
       <div>
         <%= form.text_field :title, class:"form-control" %>
