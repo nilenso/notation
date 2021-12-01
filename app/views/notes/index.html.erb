@@ -30,9 +30,9 @@
 
     <table id="listing" style="margin-bottom: 10%">
         <tr>
-          <th>Title</th>
-          <th>Created At</th>
-          <th>Modified At</th>
+          <th>Title <%= sortable "title"%></th>
+          <th>Created At <%=sortable "created_at"%></th>
+          <th>Modified At <%=sortable "updated_at"%></th>
           <th>Action</th>
         </tr>
         <% @notes.each do |note| %>
@@ -41,9 +41,9 @@
             <td><%= note.created_at %></td>
             <td><%= note.updated_at %></td>
             <td>
-              <%= link_to '', edit_notes_path(note), class: "btn fa fa-eye"%>
-              <%= link_to '', edit_notes_path(note), class: "btn fa fa-pencil"%>
-              <%= link_to '', destroy_notes_path(note), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn fa fa-trash"%>
+              <%= link_to '', edit_notes_path(note), class: "fa-fw fa fa-eye"%>
+              <%= link_to '', edit_notes_path(note), class: "fa-fw fa fa-pencil"%>
+              <%= link_to '', destroy_notes_path(note), method: :delete, data: { confirm: 'Are you sure?' }, class: "fa-fw fa fa-trash"%>
             </td>
           </tr>
         <% end %>

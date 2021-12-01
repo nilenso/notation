@@ -1,11 +1,12 @@
 class NotesController < ApplicationController
   def index
     @user = current_user
-    @notes = if search_key
+    notes = if search_key
       @user.notes.search_by_title_or_body(search_key)
     else
       @user.notes
     end
+    @notes = notes.order("#{sort_column} #{sort_direction}")
   end
 
   def new
@@ -43,6 +44,24 @@ class NotesController < ApplicationController
   end
 
   private
+
+  def sort_column
+    attribute = {"title" => :title, "created_at" => :created_at, "updated_at" => :updated_at}
+    if params[:sort]
+      attribute[params[:sort]]
+    else
+      :title
+    end
+  end
+
+  def sort_direction
+    direction = {"asc" => :asc, "desc" => :desc}
+    if params[:direction]
+      direction[params[:direction]]
+    else
+      :asc
+    end
+  end
 
   def search_key
     if params[:search_key].present?
