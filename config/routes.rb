@@ -14,6 +14,7 @@ Rails.application.routes.draw do
     patch "/notes" => "notes#update"
     delete "/notes" => "notes#destroy", :as => "destroy_notes"
     get "/notes/new" => "notes#new"
+    get "/notes/search" => "notes#search", :as => "search_notes"
     get "/notes/:id/edit" => "notes#edit", :as => "edit_notes"
   end
 
